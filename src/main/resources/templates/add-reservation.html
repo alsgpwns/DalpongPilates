@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Reservation</title>
+</head>
+<body>
+    <h1>Add New Reservation</h1>
+    <form method="post" action="/api/reservations">
+        <label for="customerName">Customer Name:</label>
+        <input type="text" id="customerName" name="customerName" required>
+        <br>
+        <label for="reservationDate">Date:</label>
+        <input type="date" id="reservationDate" name="reservationDate" required>
+        <br>
+        <label for="reservationTime">Time:</label>
+        <input type="time" id="reservationTime" name="reservationTime" required>
+        <br>
+        <button type="submit">Add Reservation</button>
+    </form>
+    <a href="/">Back to Home</a>
+</body>
+</html>

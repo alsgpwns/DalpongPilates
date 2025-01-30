@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"> <!-- UTF-8 설정 -->
+    <link rel="stylesheet" href="/styles.css">
+    <title>회원권 확인</title>
+</head>
+<body>
+    <h1>내 회원권 잔여 횟수 확인</h1>
+    <form id="check-form">
+        <label>이름:</label>
+        <input type="text" id="name" required>
+        <button type="submit">조회</button>
+    </form>
+    <p id="result"></p>
+
+    <script>
+        document.getElementById('check-form').onsubmit = function(event) {
+            event.preventDefault();
+            var name = document.getElementById('name').value;
+            fetch(`/api/members/remaining-sessions?name=` + name)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('result').innerText = "잔여 횟수: " + data;
+                })
+                .catch(error => console.error(error));
+        };
+    </script>
+</body>
+</html>
